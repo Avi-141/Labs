@@ -25,9 +25,6 @@ void delete_node(AVLTree *t, Node *z);
 void verify_avl_property(Node *root);
 
 #endif
-
-
-#include "avl.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>

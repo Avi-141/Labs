@@ -1,62 +1,97 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
-void merge(int arr[],int lo,int mid,int hi)
-{
-	int first=mid-lo+1;
-	int second=hi-mid;
 
-	int left[first],right[second];
+int op = 0;
 
-	for(int i=0;i<first;i++){
-		left[i]=arr[lo+i];
-	}
-	for(int i=0;i<second;i++){
-		right[i]=arr[mid+1+i];
-	}
+void merge(int arr[], int l, int m, int r) 
+{ 
+    int i, j, k; 
+    int size1 = m - l + 1; 
+    int size2 =  r - m; 
+  
+    
+    int L[size1], R[size2]; 
+  
+    
+    for (i = 0; i < size1; i++) 
+        L[i] = arr[l + i]; 
+    for (j = 0; j < size2; j++) 
+        R[j] = arr[m + 1+ j]; 
+  
+    
+    i = 0; 
+    j = 0;  
+    k = l;
+    while (i < size1 && j < size2) 
+    { 
+        if (L[i] <= R[j]) 
+        { 
+            arr[k] = L[i]; 
+            i++; 
+        } 
+        else
+        { 
+            arr[k] = R[j]; 
+            j++; 
+        } 
+        k++; 
+    } 
+  
+    while (i < size1) 
+    { 
+        arr[k] = L[i]; 
+        i++; 
+        k++; 
+    } 
+  
+    
+    while (j < size2) 
+    { 
+        arr[k] = R[j]; 
+        j++; 
+        k++; 
+    } 
+} 
+  
+void mergeSort(int arr[], int l, int r) 
+{ 
+	op++;
+    if (l < r) 
+    { 
+        
+        int m = l+(r-l)/2; 
+  
+        mergeSort(arr, l, m); 
+        mergeSort(arr, m+1, r); 
+  
+        merge(arr, l, m, r); 
+    } 
+} 
+  
+void systemprint(int A[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        printf("%d ", A[i]); 
+    printf("\n"); 
+} 
+  
+int main() 
+{     
+    int n; int arr[100];
+  
+  	printf("Enter the number of elements: \n");
+  	scanf("%d",&n);
 
-	int i=0,j=0,k=lo;
-	while(i<first&&j<second)
-	{
-		if(left[i]<=right[j])
-		{
-			arr[k++]=left[i++];
-			
-		}
-		else if(left[i]>right[j])
-		{
-			arr[k++]=right[j++];
-			
-		}
-	}
-	while(i<first)
-	{
-		arr[k++]=left[i++];
-	}
-	while(j<second)
-	{
-		arr[k++]=right[j++];
-	}
-}
-void mergesort(int arr[],int left,int right)
-{
-	int mid=left+(right-left)/2;
-	//int n=right-left+1;
-	if(left<right)
-	{
-	mergesort(arr,left,mid);
-	mergesort(arr,mid+1,right);
-	merge(arr,left,mid,right);
-    }
-}
+  	printf("Enter the elements: \n");
 
-int main(int argc, char const *argv[])
-{
-	int arr[]={1,2,-2,-3,-9,11,10,13};
-	int n=sizeof(arr)/sizeof(arr[0]);
-	mergesort(arr,0,n);
+  	for(int i=0; i<n; i++)
+  		scanf("%d",&arr[i]);
+    mergeSort(arr, 0, n - 1); 
+  
+    printf("\nSorted array is \n"); 
+    systemprint(arr, n); 
 
-	for(int i=0;i<n;i++)
-		printf("%d\t",arr[i]);
-	return 0;
+    printf("\nThe opcount is: %d \n",op);
+    return 0;
 }

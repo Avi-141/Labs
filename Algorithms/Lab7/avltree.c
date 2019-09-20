@@ -104,7 +104,7 @@ struct Node* avl_insert(struct Node* node, int key)
 		node->right = rightrot(node->right); 
 		return leftrot(node); 
 	} 
-return node; 
+return node;  
 } 
 int main() { 
 struct Node *root = noleaf; 
@@ -116,9 +116,15 @@ root=avl_insert(root,11);
 root=avl_insert(root,0);
 root=avl_insert(root,8);
 root=avl_insert(root,5);
-root=avl_insert(root,78);
-printf("Preorder AVL"" tree is \n"); 
+root=avl_insert(root,78);root=avl_insert(root,234);
+root=avl_insert(root,7);
+
+printf("AVL tree pre-traversal\n"); 
 pre(root); 
+printf("\n");
+printf("AVL tree post-traversal\n");
+post(root); 
+
 
 return 0; 
 } 

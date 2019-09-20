@@ -30,7 +30,7 @@ int main ()
         if(isZero(graph,i) && comp[i]==0)
         {
             comp[i] = 1;
-            printf("Job %d\n",i);
+            printf("Current soucce : %d\n",i);
             for(int j = 0;j<V;j++)
                 graph[i][j] = 0;
             ndx++;

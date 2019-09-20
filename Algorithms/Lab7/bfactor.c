@@ -56,7 +56,7 @@ void pre(struct Node *root) {
     if(root != noleaf) 
     { 
         printf("Current Node : %d ", root->key); 
-        printf("Cannot be |-1<= Bfactor <=1| since this is NOT AVL: %d \n", bfactor(root));
+        printf(" : %d \n", bfactor(root));
         pre(root->left); 
         pre(root->right); 
     } 
@@ -70,7 +70,6 @@ int main()
   int k=1; int n;
   printf("BST balance factor\n");
   printf("Enter 0 to quit\n");
-
   do{
    scanf("%d",&n);
     if(n==0)
