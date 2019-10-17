@@ -1,0 +1,10 @@
+Aug 29 16:36:46.509 HYPERVISOR: Release 0.2.18-amd64/Linux (tag 2018033112)
+Aug 29 16:36:46.509 HYPERVISOR: Started on TCP port = 55512.
+Aug 29 16:36:46.519 HYPERVISOR: exec_cmd: hypervisor version 
+Aug 29 16:36:46.519 HYPERVISOR: exec_cmd: hypervisor working_dir /home/student/Desktop/170905510/Comp Networks/Lab5/souravtemp/project-files/dynamips 
+Aug 29 16:36:46.519 GENERAL: working_dir=/home/student/Desktop/170905510/Comp Networks/Lab5/souravtemp/project-files/dynamips
+Aug 29 16:36:46.519 HYPERVISOR: exec_cmd: nio_bridge create Ethernethub-2 
+Aug 29 16:36:53.951 HYPERVISOR: exec_cmd: nio create_udp udp-2ae23d35-108c-4cb1-8a08-9759b9ce585d 10016 127.0.0.1 10017 
+Aug 29 16:36:53.951 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-2 udp-2ae23d35-108c-4cb1-8a08-9759b9ce585d 
+Aug 29 16:36:59.620 HYPERVISOR: exec_cmd: nio create_udp udp-a667a2fd-8a86-4aad-b61b-cee31b6fb416 10019 127.0.0.1 10018 
+Aug 29 16:36:59.620 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-2 udp-a667a2fd-8a86-4aad-b61b-cee31b6fb416 

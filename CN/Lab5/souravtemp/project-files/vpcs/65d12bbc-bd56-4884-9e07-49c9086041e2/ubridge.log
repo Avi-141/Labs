@@ -1,0 +1,9 @@
+uBridge version 0.9.14 running with libpcap version 1.7.4
+Hypervisor TCP control server started (IP 127.0.0.1 port 36624).
+UDP tunnel connecting from local port 10021 to IPv4 addresss 127.0.0.1 on port 10020
+UDP tunnel connecting from local port 10017 to IPv4 addresss 127.0.0.1 on port 10016
+Source NIO listener thread for VPCS-65d12bbc-bd56-4884-9e07-49c9086041e2 has started
+Destination NIO listener thread for VPCS-65d12bbc-bd56-4884-9e07-49c9086041e2 has started
+Hypervisor: closing control sockets.
+Hypervisor: closing remote client connections.
+Hypervisor: stopped.

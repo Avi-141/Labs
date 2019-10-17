@@ -1,0 +1,20 @@
+Aug 29 15:57:49.728 HYPERVISOR: Release 0.2.18-amd64/Linux (tag 2018033112)
+Aug 29 15:57:49.728 HYPERVISOR: Started on TCP port = 44211.
+Aug 29 15:57:49.731 HYPERVISOR: exec_cmd: hypervisor version 
+Aug 29 15:57:49.731 HYPERVISOR: exec_cmd: hypervisor working_dir /home/student/Desktop/170905510/Comp Networks/Lab5/souravtemp/project-files/dynamips 
+Aug 29 15:57:49.731 GENERAL: working_dir=/home/student/Desktop/170905510/Comp Networks/Lab5/souravtemp/project-files/dynamips
+Aug 29 15:57:49.731 HYPERVISOR: exec_cmd: nio_bridge create Ethernethub-1 
+Aug 29 15:58:03.406 HYPERVISOR: exec_cmd: nio create_udp udp-3e961f26-45f0-4483-afd6-12b45eac5445 10000 127.0.0.1 10001 
+Aug 29 15:58:03.407 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-1 udp-3e961f26-45f0-4483-afd6-12b45eac5445 
+Aug 29 15:58:11.288 HYPERVISOR: exec_cmd: nio create_udp udp-b1cd4f88-dc74-49d4-8b05-8875a3560379 10002 127.0.0.1 10003 
+Aug 29 15:58:11.289 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-1 udp-b1cd4f88-dc74-49d4-8b05-8875a3560379 
+Aug 29 15:58:16.657 HYPERVISOR: exec_cmd: nio create_udp udp-e55bb325-941d-4136-9e21-55004bc3b58f 10004 127.0.0.1 10005 
+Aug 29 15:58:16.658 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-1 udp-e55bb325-941d-4136-9e21-55004bc3b58f 
+Aug 29 15:58:19.709 HYPERVISOR: exec_cmd: nio create_udp udp-5314d6cf-e6cc-4f71-8015-b063b058e0ff 10006 127.0.0.1 10007 
+Aug 29 15:58:19.709 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-1 udp-5314d6cf-e6cc-4f71-8015-b063b058e0ff 
+Aug 29 16:06:53.103 HYPERVISOR: exec_cmd: nio bind_filter udp-5314d6cf-e6cc-4f71-8015-b063b058e0ff 2 capture 
+Aug 29 16:06:53.104 HYPERVISOR: exec_cmd: nio setup_filter udp-5314d6cf-e6cc-4f71-8015-b063b058e0ff 2 en10mb /home/student/Desktop/170905510/Comp Networks/Lab5/souravtemp/tmp/captures/Ethernethub-1_Ethernet3_to_PC-1_Ethernet0.pcap 
+Aug 29 16:17:59.174 HYPERVISOR: exec_cmd: nio bind_filter udp-3e961f26-45f0-4483-afd6-12b45eac5445 2 capture 
+Aug 29 16:17:59.174 HYPERVISOR: exec_cmd: nio setup_filter udp-3e961f26-45f0-4483-afd6-12b45eac5445 2 en10mb /home/student/Desktop/170905510/Comp Networks/Lab5/souravtemp/tmp/captures/Ethernethub-1_Ethernet0_to_PC-4_Ethernet0.pcap 
+Aug 29 16:36:59.593 HYPERVISOR: exec_cmd: nio create_udp udp-09a8b986-5b7d-43f2-9ca7-298849897013 10018 127.0.0.1 10019 
+Aug 29 16:36:59.593 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-1 udp-09a8b986-5b7d-43f2-9ca7-298849897013 

@@ -1,0 +1,79 @@
+Assign IP to all routers 
+---------------------------
+R1#config t  
+Enter configuration commands, one per line.  End with CNTL/Z. 
+R1(config)#int f0/0  
+R1(config-if)#ip add 10.10.10.1 255.255.255.0  
+R1(config-if)#no shut 
+
+R2#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#int f0/0
+R2(config-if)#ip add 10.10.10.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#
+
+R3#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#int f0/0
+R3(config-if)#ip add 10.10.10.3 255.255.255.0
+R3(config-if)#no shut
+R3(config-if)#
+
+R4#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R4(config)#int f0/0
+R4(config-if)#ip add 10.10.10.4 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#
+
+
+=====================
+Make R1 as main server 
+
+R1(config)#ip dns server
+R1(config)#ip dns primary avi.com soa serv.avi.com mail.avi.com
+R1(config)#ip host avi.com ns 10.10.10.1
+R1(config)#ip host serv 10.10.10.1
+R1(config)#ip host R2 10.10.10.2
+R1(config)#ip host R3 10.10.10.3
+R1(config)#ip host R4 10.10.10.4
+======================
+
+ step 1 : set the router as a dns server with "ip dns server"
+ - step 2 : set the dns zone with the following details:
+   avi.com = domain name , serv.avi.com = dns server name ,
+     mail.avi.com= admin email
+ - step 3: set an serv record for the dns server "ip host avi.com ns 10.10.10.1"
+ - step 4: create some A records for the rest of the network
+
+==================
+
+set R2 R3 R4 as clients 
+
+
+R2#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#no ip domain name lab.local
+R2(config)#ip domain-lookup
+R2(config)#ip name-server 10.10.10.1
+
+R3#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#no ip domain name lab.local
+R3(config)#ip domain-lookup
+R3(config)#ip name-server 10.10.10.1
+
+R4#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R4(config)#no ip domain name lab.local
+R4(config)#ip domain-lookup
+R4(config)#ip name-server 10.10.10.1
+
+
+
+//http://infotechnotebook.blogspot.com/2012/09/setting-cisco-router-as-dns-server-dns.html
+//http://infotechnotebook.blogspot.com/2012/09/setting-cisco-router-as-dns-server-dns.html
+https://gns3vault.com/network-services/dns-server
+https://blog.ipspace.net/2006/09/use-your-cisco-router-as-primary-dns.html
+https://serverfault.com/questions/885447/while-pinging-0-0-0-0-it-actually-gives-pings-from-127-0-0-1-why

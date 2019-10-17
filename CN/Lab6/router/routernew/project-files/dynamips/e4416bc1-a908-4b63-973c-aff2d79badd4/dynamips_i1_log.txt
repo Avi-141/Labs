@@ -1,0 +1,35 @@
+Sep 05 21:59:00.528 HYPERVISOR: Release 0.2.18-amd64/Linux (tag 2018033112)
+Sep 05 21:59:00.528 HYPERVISOR: Started on TCP port = 50477.
+Sep 05 21:59:00.534 HYPERVISOR: exec_cmd: hypervisor version 
+Sep 05 21:59:00.534 HYPERVISOR: exec_cmd: hypervisor working_dir /home/student/Desktop/170905510/Comp Networks/Lab6/router/routernew/project-files/dynamips 
+Sep 05 21:59:00.534 GENERAL: working_dir=/home/student/Desktop/170905510/Comp Networks/Lab6/router/routernew/project-files/dynamips
+Sep 05 21:59:00.535 HYPERVISOR: exec_cmd: hypervisor working_dir /home/student/Desktop/170905510/Comp Networks/Lab6/router/routernew/project-files/dynamips/4db25bcd-dd28-4e0b-803e-de6c049593f7 
+Sep 05 21:59:00.535 GENERAL: working_dir=/home/student/Desktop/170905510/Comp Networks/Lab6/router/routernew/project-files/dynamips/4db25bcd-dd28-4e0b-803e-de6c049593f7
+Sep 05 21:59:00.535 HYPERVISOR: exec_cmd: vm create R3 2 c3745 
+Sep 05 21:59:00.535 VM: VM R3 created.
+Sep 05 21:59:00.535 HYPERVISOR: exec_cmd: vm set_con_tcp_port R3 5007 
+Sep 05 21:59:00.535 HYPERVISOR: exec_cmd: c3745 get_mac_addr R3 
+Sep 05 21:59:00.536 HYPERVISOR: exec_cmd: vm get_status R3 
+Sep 05 21:59:00.536 HYPERVISOR: exec_cmd: vm slot_add_binding R3 4 0 NM-4T 
+Sep 05 21:59:00.536 HYPERVISOR: exec_cmd: c3745 set_mac_addr R3 c402.1911.0000 
+Sep 05 21:59:00.536 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 32 WIC-2T 
+Sep 05 21:59:00.536 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 16 WIC-1T 
+Sep 05 21:59:00.537 HYPERVISOR: exec_cmd: vm set_nvram R3 256 
+Sep 05 21:59:00.537 HYPERVISOR: exec_cmd: vm set_ios R3 /home/student/GNS3/images/IOS/c3745-adventerprisek.124-25d.image 
+Sep 05 21:59:00.538 HYPERVISOR: exec_cmd: vm get_status R3 
+Sep 05 21:59:00.538 HYPERVISOR: exec_cmd: vm slot_add_binding R3 1 0 NM-1FE-TX 
+Sep 05 21:59:00.538 HYPERVISOR: exec_cmd: vm get_status R3 
+Sep 05 21:59:00.538 HYPERVISOR: exec_cmd: vm set_idle_pc R3 0x60be9420 
+Sep 05 21:59:00.538 HYPERVISOR: exec_cmd: vm get_status R3 
+Sep 05 21:59:00.539 HYPERVISOR: exec_cmd: vm slot_add_binding R3 3 0 NM-1FE-TX 
+Sep 05 21:59:00.539 HYPERVISOR: exec_cmd: vm get_status R3 
+Sep 05 21:59:00.539 HYPERVISOR: exec_cmd: vm slot_add_binding R3 2 0 NM-4T 
+Sep 05 21:59:00.539 HYPERVISOR: exec_cmd: vm set_ram R3 256 
+Sep 05 21:59:00.540 HYPERVISOR: exec_cmd: vm set_disk0 R3 0 
+Sep 05 21:59:04.997 HYPERVISOR: exec_cmd: vm get_status R3 
+Sep 05 21:59:04.997 HYPERVISOR: exec_cmd: vm extract_config R3 
+Sep 05 21:59:04.998 HYPERVISOR: exec_cmd: vm delete R3 
+Sep 05 21:59:04.998 VM: VM R3 destroyed.
+Sep 05 21:59:04.998 HYPERVISOR: exec_cmd: hypervisor stop 
+Sep 05 21:59:05.039 HYPERVISOR: Stopped.
+Sep 05 21:59:05.039 GENERAL: reset done.
