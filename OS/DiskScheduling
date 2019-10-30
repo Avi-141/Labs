@@ -1,0 +1,119 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+void swap(int *xp, int *yp)  
+{  
+    int temp = *xp;  
+    *xp = *yp;  
+    *yp = temp;  
+}  
+  
+void sort(int arr[], int n)  
+{  
+    int i, j;  
+    for (i = 0; i < n-1; i++)      
+        for (j = 0; j < n-i-1; j++)  
+        	if (arr[j] > arr[j+1])  
+            	swap(&arr[j], &arr[j+1]);  
+}  
+
+void fcfs(int seq[],int n,int start){
+	int cylinders = 0;
+	printf("%d->",start);
+	for(int i = 0;i<n;i++){
+		printf("%d->",seq[i]);
+		cylinders += fabs(start-seq[i]);
+		start = seq[i];
+	}	
+	printf("\nCylinders travelled = %d\n",cylinders);
+}
+int find_ind(int seq[],int n,int start,int flag[]){
+	int min  = 9999;
+	int min_ind = -1;
+	for(int i = 0;i<n;i++){
+		int diff = fabs(start-seq[i]);
+		if(diff < min && flag[i] == 0){
+			min = diff;
+			min_ind = i;
+		}
+	}
+	return min_ind;
+}
+void sstf(int seq[],int n,int start){
+	int cylinders = 0;
+	printf("%d-> ",start);
+	int flag[n];
+	for(int i = 0;i<n;i++) flag[i]=0;
+	for(int i = 0;i<n;i++){
+		int ind = find_ind(seq,n,start,flag);
+		printf("%d-> ",seq[ind]);
+		flag[ind] = 1;
+		cylinders +=fabs(start-seq[i]);
+		start = seq[ind];
+	}
+	printf("\nCylinders travelled = %d\n",cylinders);
+}
+int find_part(int seq[],int n,int start){
+	int part = 0;
+	while(seq[part]<start){
+		part++;
+	}
+	return part;
+}
+void scan(int seq[],int n,int start){
+	int cylinders = 0;
+	printf("%d->",start);
+	int flag[n];
+	sort(seq,n);
+	int ind = find_part(seq,n,start);
+	for(int i = ind-1;i>=0;i--){
+		printf("%d->",seq[i]);
+		cylinders += fabs(start-seq[i]);
+		start = seq[i];
+	}
+	cylinders+=2*fabs(start - 0);
+	printf("%d -> 0 ->",start);
+	for (int i = ind; i <n; ++i){
+		printf("2%d->",seq[i]);
+		cylinders += fabs(start-seq[i]);
+		start = seq[i];
+	}
+	printf("\nCylinders travelled = %d\n",cylinders);
+
+}
+void cscan(int seq[],int n,int start,int total){
+	int cylinders = 0;
+	printf("%d->",start);
+	int flag[n];
+	sort(seq,n);
+	int ind = find_part(seq,n,start);
+	for(int i = ind;i<n;i++){
+		printf("%d->",seq[i]);
+		cylinders += fabs(start-seq[i]);
+		start = seq[i];
+	}
+	cylinders+=total-1;
+	printf("%d->0-> ",total-1);
+	for (int i = 0; i<ind;i++){
+		printf("%d->",seq[i]);
+		cylinders += fabs(start-seq[i]);
+		start = seq[i];
+	}
+	printf("\nCylinders travelled = %d\n",cylinders);
+
+}
+int main(int argc, char const *argv[])
+{
+	int seq[] = {50,32,187,43,37,64,128,21,12,4};
+	int total = 200;
+	int n = sizeof(seq)/sizeof(int);
+	int start = 100;
+	fcfs(seq,n,start);
+	printf("\n");
+	sstf(seq,n,start);
+	printf("\n");
+	scan(seq,n,start);
+	printf("\n");
+	cscan(seq,n,start,total);
+	return 0;
+}
