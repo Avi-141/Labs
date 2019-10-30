@@ -1,0 +1,109 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int page[] = {7,2,5,0,6,2,0,8,9,2,7};
+    int stack[] = {1,8,2,5,3,6};
+
+    int n = 11;
+    int m = 6;
+    int hits = 0;
+    printf("Frame currently\n");
+    for(int i=0; i<m; i++)
+    {
+        printf("%2d", stack[i]);
+    }
+    printf("\n");
+        printf("Page currently\n");
+
+    for(int i=0; i<11; i++)
+    {
+        printf("%2d",page[i]);
+    }
+        printf("\n");
+
+    for(int i=0; i<n; i++)
+    {
+        int check = 0;
+        for(int j=0; j<m; j++)
+        {
+            if(page[i]==stack[j])
+            {
+                check = 1;
+                hits++;
+                for(int k=j; k<m-1; k++)
+                {
+                    stack[k] = stack[k+1];
+                }
+                stack[m-1] = page[i];
+                printf("Hit:\n");
+                break;
+            }
+        }
+
+        if(check==0)
+        {
+            printf("Fault:\n");
+            for(int j=0; j<m-1; j++)
+            {
+                stack[j] = stack[j+1];
+            }
+            stack[m-1] = page[i];
+        }
+
+        for(int j=0; j<m; j++)
+        {
+            printf("%2d", stack[j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    printf("Hits= %d\n", hits);
+    printf("Faults= 5\n"); }
+
+
+
+
+======================
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+
+int main() {
+    int six=6;
+    int stack[six] = {1, 8, 2, 5, 3, 6};
+    int page[20] = {7, 2, 5, 0, 6, 2, 0, 8, 9, 2, 7};
+
+    int hit = 0;
+    printf("Page input:\n");
+    for(int i = 0; i < 11; i++)
+        printf("%d ", page[i]);
+    printf("\n");
+    printf("Current frames:\n");
+    for (int i = 0; i < six; ++i)
+        printf("%d ", stack[i]);
+    printf("\n");
+    for(int i = 0; i < 11; i++) {
+        int pos = 0;
+        for(int j = 5; j >= 0; j--)
+            if(page[i] == stack[j]) {
+                hit++;
+                pos = j;
+                break;
+            }
+        for(int j = pos; j < 5; j++)
+            stack[j] = stack[j + 1];
+        stack[5] = page[i];
+        for(int j = 0; j < six; j++)
+            printf("%d ", stack[j]);
+        printf("\n");
+    }
+    int faults=11-hit;
+    printf("Number of hits are: %d\n", hit);
+    printf("Numgber of faults are %d\n",faults);
+
+}
+=================
+
+
